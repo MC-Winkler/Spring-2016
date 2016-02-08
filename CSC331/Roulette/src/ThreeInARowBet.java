@@ -10,6 +10,8 @@ public class ThreeInARowBet extends Bet {
 	}
 	
 	protected boolean isMade(Wheel myWheel, String betChoice){
-		return myWheel.getColor().equals(betChoice);
+		int start = Integer.parseInt(betChoice);
+        return (start <= myWheel.getNumber() && 
+                myWheel.getNumber() < start + 3);
 	}
 }
