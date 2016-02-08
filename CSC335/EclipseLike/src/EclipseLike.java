@@ -16,7 +16,7 @@ public class EclipseLike {
 		}
 		for (Method method : c.getMethods()){
 			if (!Modifier.isStatic(method.getModifiers()))
-				System.out.println("S:" + method.getName() + "(" + method.getParameterTypes() +
+				System.out.println(method.getName() + "(" + toStringParameters(method.getParameterTypes()) +
 						" ): " + method.getReturnType() + " - " + method.getDeclaringClass());
 		}
 		for (Field field: c.getFields()){
@@ -26,10 +26,18 @@ public class EclipseLike {
 		}
 		for (Method method : c.getMethods()){
 			if (!Modifier.isStatic(method.getModifiers()))
-				System.out.println("S:" + method.getName() + "(" + method.getParameterTypes() +
+				System.out.println("S:" + method.getName() + "(" + toStringParameters(method.getParameterTypes()) +
 						" ): " + method.getReturnType() + " - " + method.getDeclaringClass());
 		}
 		
 		
+	}
+	
+	private static String toStringParameters(Class<?>[] classes){
+		StringBuilder x = new StringBuilder();
+		for (Class<?> p:classes) {
+			x.append(p.getName());
+		}
+		return x.toString();
 	}
 }
