@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="person" class="com.caveofprogramming.spring.test.Person"
+		scope="singleton" init-method="onCreate">
+		<constructor-arg value="777" name="id" type="int">
+		</constructor-arg>
+		<constructor-arg value="Mary" name="name" type="String"></constructor-arg>
+		<property value="321" name="taxId">
+		</property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+	<bean id="address" class="com.caveofprogramming.spring.test.Address"
+		p:street="23 Vinyard Lane" p:postcode="6789">
+
+	<constructor-arg>
+		<list>
+			<value></value>
+		</list>
+	</constructor-arg>
+	</bean>
+
+</beans>
