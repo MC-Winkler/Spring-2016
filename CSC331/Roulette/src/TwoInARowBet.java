@@ -1,12 +1,15 @@
 
 public class TwoInARowBet extends Bet {
-
+	
+	int UPPERBOUND = 35;
+	
 	public TwoInARowBet (String description, int odds){
 		super(description, odds);
 	}
+	
 	@Override
 	protected String placeBet() {
-		return ("" + ConsoleReader.promptRange("Enter first of two consecutive numbers", 1, 34));
+		return ("" + ConsoleReader.promptRange("Enter first of two consecutive numbers", LOWERBOUND, UPPERBOUND));
 	}
 
 	@Override

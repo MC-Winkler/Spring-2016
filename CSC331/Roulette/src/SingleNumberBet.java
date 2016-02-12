@@ -7,7 +7,7 @@ public class SingleNumberBet extends Bet {
 
 	@Override
 	protected String placeBet() {
-		return ("" + ConsoleReader.promptRange("Enter a number between 1 and 36", 1, 36));
+		return ("" + ConsoleReader.promptRange("Enter a number between 1 and 36", LOWERBOUND, UPPERBOUND));
 	}
 
 	@Override

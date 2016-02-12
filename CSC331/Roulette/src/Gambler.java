@@ -15,10 +15,13 @@ public class Gambler
      * @param name used to refer to the gambler
      * @param money initial amount of the money the gambler has to spend
      */
-    public Gambler (String name, int money)
+    public Gambler (String name, int money, Game game)
     {
         myName = name;
         myMoney = money;
+        System.out.println("Hello " + myName + 
+                ", let's play " + game.getName());
+        System.out.println();  
     }
 
 
@@ -27,7 +30,14 @@ public class Gambler
      */
     public boolean isSolvent ()
     {
-        return (myMoney > 0);
+    	if (myMoney > 0)
+    		return true;
+    	else{
+    		System.out.println();
+    		System.out.println("Goodbye " + myName + 
+                           ", thanks for playing!");
+    		return false;
+    	}
     }
 
 

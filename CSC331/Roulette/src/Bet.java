@@ -8,6 +8,9 @@ public abstract class Bet
 {
     public String myDescription;
     public int myOdds;
+    
+	int LOWERBOUND = 1;
+	int UPPERBOUND = 36;
 
     /**
      * Constructs a bet with the given name and odds.

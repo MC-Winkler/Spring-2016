@@ -8,11 +8,12 @@ public class Main
     public static void main (String[] args)
     {
         Game game = new Game();
-        Gambler player = new Gambler("Shannon", 1000);
+        
+        String playerName = ConsoleReader.promptForString("What is your name?");
+        int initialAmount = ConsoleReader.promptForInt("How much money do you have?");
+        Gambler player = new Gambler(playerName, initialAmount, game);
 
-        System.out.println("Hello " + player.myName + 
-                           ", let's play " + game.getName());
-        System.out.println();
+        
 
         do
         {
@@ -20,8 +21,6 @@ public class Main
         }
         while (player.isSolvent());
 
-        System.out.println();
-        System.out.println("Goodbye " + player.myName + 
-                           ", thanks for playing!");
+      
     }
 }
