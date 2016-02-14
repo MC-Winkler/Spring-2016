@@ -10,7 +10,6 @@ public abstract class Bet
     public int myOdds;
     
 	int LOWERBOUND = 1;
-	int UPPERBOUND = 36;
 
     /**
      * Constructs a bet with the given name and odds.
@@ -32,7 +31,9 @@ public abstract class Bet
         return myDescription;
     }
     
+    //Returns, as a string, the user's choice of bet
     protected abstract String placeBet();
     
+    //Returns a boolean representing whether or not the player's bet hit or missed
     protected abstract boolean isMade(Wheel myWheel, String betChoice);
 }

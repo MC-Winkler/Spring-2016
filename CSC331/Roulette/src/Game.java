@@ -12,9 +12,9 @@ public class Game {
 			new RedBlackBet("Red or Black", 1), 
 			new OddEvenBet("Odd or Even", 1),
 			new HighLowBet("High or Low", 1),
-			new SingleNumberBet("Single Number", 35),
-			new TwoInARowBet("Two in a Row", 17),
-			new ThreeInARowBet("Three in a Row", 11) };
+			new RowBet("Single Number", 35, 1),
+			new RowBet("Two in a Row", 17, 2),
+			new RowBet("Three in a Row", 11, 3) };
 
 	/**
 	 * Construct the game.

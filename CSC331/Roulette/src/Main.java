@@ -9,8 +9,8 @@ public class Main
     {
         Game game = new Game();
         
-        String playerName = ConsoleReader.promptForString("What is your name?");
-        int initialAmount = ConsoleReader.promptForInt("How much money do you have?");
+        String playerName = ConsoleReader.promptForString("What is your name? ");
+        int initialAmount = ConsoleReader.promptForInt("How much money do you have? ");
         Gambler player = new Gambler(playerName, initialAmount, game);
 
         
