@@ -50,7 +50,7 @@ public class ReflectionUtilities {
 		if (formals.length!=actuals.length)
 			return false;
 		for (int i=0; i < formals.length; i++){
-			if(!formals[i].isInstance(actuals[i]))
+			if(!formals[i].isInstance(actuals[i]) && !typesMatchInts(formals[i],actuals[i]))
 				return false;
 		}
 		return true;
@@ -76,7 +76,7 @@ public class ReflectionUtilities {
 		Class c = null;
 		try {
 			c = Class.forName(name);
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		Constructor<?>[] constructors = c.getConstructors();
@@ -85,19 +85,9 @@ public class ReflectionUtilities {
 			if (typesMatch (parameters, args)){
 				try {
 					return constructor.newInstance(args);
-				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
+				} catch (Exception e) {
 					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (InvocationTargetException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				} 
 			}
 		}
 		System.out.println("The array of arguments you provided did not match any "
@@ -131,29 +121,11 @@ public class ReflectionUtilities {
 		}
 		for (Method method: matchedMethods){
 			if(typesMatch(method.getParameterTypes(),args)){
-				if(method.getReturnType().equals(Void.TYPE)){
-					try {
-						method.invoke(target, args);
-					} catch (IllegalAccessException e) {
-						e.printStackTrace();
-					} catch (IllegalArgumentException e) {
-						e.printStackTrace();
-					} catch (InvocationTargetException e) {
-						e.printStackTrace();
-					}
-					return null;
-				}
-				else{
-					try {
-						return method.invoke(target, args);
-					} catch (IllegalAccessException e) {
-						e.printStackTrace();
-					} catch (IllegalArgumentException e) {
-						e.printStackTrace();
-					} catch (InvocationTargetException e) {
-						e.printStackTrace();
-					}
-				}
+				try {
+					return method.invoke(target, args);
+				} catch (Exception e) {
+					e.printStackTrace();
+				} 
 			}
 		}
 		System.out.println("The method name you've provided is not compatible with the arguments and object"

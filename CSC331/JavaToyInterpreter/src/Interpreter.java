@@ -76,7 +76,7 @@ public class Interpreter {
 			return mySymbolTable.get(name);
 		}
 		else if (name.charAt(0) == '"')
-			return name.substring(1, name.length());
+			return name.substring(1, name.length()-1);
 		else
 			return Integer.parseInt(name);
 	}
@@ -126,16 +126,18 @@ public class Interpreter {
 		Object[] args = convertNameToInstance(parse.argumentNames);
 		methodResult = ReflectionUtilities.callMethod(target, methodName, args);
 		if (methodResult != null){
-			if (mySymbolTable.get(parse.objectName) != null){
-				return ("I changed the value of " + parse.objectName + " to my result " + methodResult);
+			if (mySymbolTable.get(parse.answerName) != null){
+				mySymbolTable.put(parse.answerName, methodResult);
+				return ("I changed the value of " + parse.answerName + " to my result, " + methodResult);
 			}
 			else{
-				mySymbolTable.put(parse.objectName, methodResult);
+				mySymbolTable.put(parse.answerName, methodResult);
 				return "I made a new object. Result was " + methodResult;
 			}
 		}
 		else
-			return "I called the method " + parse.methodName + " on " + parse.objectName;
+			return "I called the method " + parse.methodName + " on " + parse.objectName
+					+ ". My answer is " + methodResult;
 	}
 
 }

@@ -1,5 +1,5 @@
 /*
- * Shannon Duvall and <Put your name here.>
+ * Shannon Duvall and Michael Winkler
  * A small Java Interpreter
  * Practice using reflection and understanding how Java works.
  */
@@ -76,7 +76,7 @@ public class Interpreter {
 			return mySymbolTable.get(name);
 		}
 		else if (name.charAt(0) == '"')
-			return name.substring(1, name.length());
+			return name.substring(1, name.length()-1);
 		else
 			return Integer.parseInt(name);
 	}
