@@ -14,7 +14,6 @@
 import java.lang.reflect.*;
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class Eclipse {
 	// you always want a small main...
@@ -38,11 +37,11 @@ public class Eclipse {
 
 			// The boolean argument tells whether or not to look at static
 			// or non-static entities.
-			Arrays.stream(fields).filter(x -> Modifer.isStatic(x.getModifiers())).forEach(printField(true, x));
-			printField(false, fields);
-			printMethod(false, methods);
-			printField(true, fields);
-			printMethod(true, methods);
+			Arrays.stream(fields).filter(x -> !(Modifier.isStatic(x.getModifiers()))).forEach(x -> printField(false, x));
+			Arrays.stream(methods).filter(x -> !(Modifier.isStatic(x.getModifiers()))).forEach(x -> printMethod(false, x));			
+			Arrays.stream(fields).filter(x -> Modifier.isStatic(x.getModifiers())).forEach(x -> printField(true, x));
+			Arrays.stream(methods).filter(x -> Modifier.isStatic(x.getModifiers())).forEach(x -> printMethod(true, x));				
+			
 		}
 		catch(ClassNotFoundException e)
 		{
@@ -75,7 +74,7 @@ public class Eclipse {
 	// Format is:
 	// <NAME>(<PARA-TYPE>, <PARA-TYPE>, <...> ) : <RETURN-TYPE> - <DEC-CLASS>
 
-	public void printMethods(boolean isStatic, Method method) {
+	public void printMethod(boolean isStatic, Method method) {
 		// Print the method information
 		if (isStatic) {
 			System.out.print("S:");
