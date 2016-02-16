@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="EmployeeDAO" class="edu.elon.ioc.dao.EmployeeDAOImpl">
+	</bean>
+	<bean id="EmployeeService"
+		class="edu.elon.ioc.service.EmployeeServiceImpl">
+	<property name="employeeDAO" ref="EmployeeDAO"></property>
+	</bean>
+	<bean id="EmployerDAO" class="edu.elon.ioc.dao.EmployerDAOImpl">
+	</bean>
+	<bean id="EmployerService"
+		class="edu.elon.ioc.service.EmployerServiceImpl">
+	<constructor-arg ref="EmployerDAO" name="employerDAO"></constructor-arg>
+	</bean>
+</beans>
