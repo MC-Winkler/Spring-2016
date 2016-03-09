@@ -49,7 +49,7 @@ def afterGuessOutput(guesses,lettersGuessed,currentWord,allWordsOfLength):
     
         
     
-ourDictionaryList = getDictionaryAsList("testDictionary.txt")
+ourDictionaryList = getDictionaryAsList("dictionary.txt")
 
 wantsToPlay = "yes"
 while wantsToPlay == "yes":
