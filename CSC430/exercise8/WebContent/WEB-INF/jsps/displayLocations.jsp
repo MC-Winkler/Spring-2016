@@ -33,5 +33,6 @@
 </c:forEach>
 </table>
 
+<a href="${pageContext.request.contextPath}/createrental">Add Rental Location</a>
 </body>
 </html>
