@@ -20,7 +20,8 @@ print("1. " + str([x for x in (firstSentence + secondSentence) if len(x) > 2]))
 print("2. " + str([x for x in firstSentence if x[:1]== 'a'])) 
 print("3. " + str([x[-2:] for x in firstSentence ])) 
 print("4. " + str([x for x in firstSentence + secondSentence if (len(x) % 2)== 0]))
-print("5. " + str())
+print("5. " + str([firstSentence.index(x) for x in firstSentence if (len(x) % 2) == 0]))
+#For number 5, I looked up the index() method on stackoverflow
 print("6. " + str([x for x in (firstSentence + secondSentence) if x[-3:] == 'ing']))
 print("7. " + str([firstSentence[x] for x in range(len(firstSentence)) if firstSentence[x] == secondSentence[x]]))
 print("8. " + str([x for x in firstSentence for y in secondSentence if x == y]))
@@ -29,7 +30,7 @@ print("10. " + str([x.replace('a','ee') for x in firstSentence]))
 print("11. " + str([(firstSentence[i], secondSentence[i]) for i in range(2,7)]))
 print("12. " + str([(x,y) for x in firstSentence for y in secondSentence if x==y]))
 print("13. " + str([x+y for x in firstSentence for y in secondSentence if len(x) < len(y)]))
-print("14. " + str([]))
+print("14. I couldn't figure this one out. ")
 print("15. " + str([(x[0], y[0]) for x in firstSentence for y in secondSentence]))
 
 
@@ -39,7 +40,7 @@ def filterList(myRegex, myList):
     return [x for x in myList if re.search(myRegex, x)]
     
 theList = []
-listFile = open ('lowerwords.txt', 'r')
+listFile = open('lowerwords.txt', 'r')
 for line in listFile:
     theList.append(line.strip())
     
@@ -53,8 +54,8 @@ print("5. " + str(len(filterList('^((a\w*a)|(e\w*e)|(i\w*i)|(o\w*o)|(u\w*u))$', 
 print("6. " + str(len(filterList('[aeiou][aeiou][aeiou][aeiou]', theList))))
 print("7. " + str(len(filterList('\w*in\w*in\w*in\w*', theList))))
 print("8. " + str(len(filterList(r'\w*(\w{2})\w*\1\w*\1\w*', theList)))) 
-print("9. " + str(len(filterList(r'', theList)))) 
+print("9. " + str(len(filterList(r'\w*((\w)(\w))\w*\3\2\w*\1\w*', theList)))) 
 print("10. " + str(len(filterList(r'\w*((w)\2)\w*\1\w*\1\w*', theList)))) 
 print("11. " + str(len(filterList(r'', theList)))) 
-print("12. " + str(len(filterList(r'(\w)(?!\1)\1', theList)))) 
+print("12. " + str(len(filterList(r'', theList)))) 
 
