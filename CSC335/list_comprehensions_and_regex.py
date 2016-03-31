@@ -8,7 +8,7 @@ This is a temporary script file.
 import re
 
 #To make everything work, simply put this file in the same folder as 
-#lowerwords.txt and run it.
+#lowerwords.txt and run it. I've already handled the printing.
 
 #Part 1 
 
@@ -55,7 +55,7 @@ print("6. " + str(len(filterList('[aeiou][aeiou][aeiou][aeiou]', theList))))
 print("7. " + str(len(filterList('\w*in\w*in\w*in\w*', theList))))
 print("8. " + str(len(filterList(r'\w*(\w{2})\w*\1\w*\1\w*', theList)))) 
 print("9. " + str(len(filterList(r'\w*((\w)(\w))\w*\3\2\w*\1\w*', theList)))) 
-print("10. " + str(len(filterList(r'\w*((w)\2)\w*\1\w*\1\w*', theList)))) 
-print("11. " + str(len(filterList(r'', theList)))) 
-print("12. " + str(len(filterList(r'', theList)))) 
+print("10. " + str(len(filterList(r'\w*((\w)\2)\w*((\w)\4)\w*((\w)\6)\w*', theList)))) 
+print("11. " + str(len(filterList(r'\w*((\w)\w\2)\w*\1\w*', theList)))) 
+print("12. " + str(len(filterList(r'\w*((\w)\w\2)\w*((\w)\w\4)\w*((\w)\w\6)\w*', theList)))) 
 
