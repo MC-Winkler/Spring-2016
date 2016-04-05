@@ -14,9 +14,9 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema elonbuster
 -- -----------------------------------------------------
-create schema if not exists mvc;
+create schema if not exists MySQLDS;
 
-USE `mvc` ;
+USE `MySQLDS` ;
 
 -- -----------------------------------------------------
 -- Table `elonbuster`.`RentalLocation`

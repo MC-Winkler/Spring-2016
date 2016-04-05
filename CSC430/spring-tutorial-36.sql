@@ -4,7 +4,8 @@
 -- ------------------------------------------------------
 -- Server version	5.7.10-log
 
-USE `mvc` ;
+CREATE SCHEMA IF NOT EXISTS `springtutorial`;
+USE `springtutorial` ;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
