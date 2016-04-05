@@ -16,7 +16,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 create schema if not exists MySQLDS;
 
-USE `MySQLDS` ;
+USE `MySQLDSauthorities` ;
 
 -- -----------------------------------------------------
 -- Table `elonbuster`.`RentalLocation`
