@@ -14,9 +14,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema elonbuster
 -- -----------------------------------------------------
-create schema if not exists MySQLDS;
 
-USE `MySQLDSauthorities` ;
+USE `springtutorial` ;
 
 -- -----------------------------------------------------
 -- Table `elonbuster`.`RentalLocation`
