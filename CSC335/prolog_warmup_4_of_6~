@@ -13,7 +13,7 @@ dot([H1|T1],[H2|T2],Result):- dot(T1,T2,PrevResult), Result is H1*H2 + PrevResul
 remove_one(Element, [H|T], T):- H = Element.
 remove_one(Element, [H|T], [H|NewTail]):- remove_one(Element, T, NewTail).
 
-set_equals(X,X).
+set_equals([X],[X]).
 set_equals([H1|T1],[H2|T2]):- H1=H2, set_equals(T1, T2).
 %set_equals([H1|T1],[H2|T2]):- set_equals(H1,T2), set_equals(H2,T1).
 

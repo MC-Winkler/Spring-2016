@@ -1,0 +1,38 @@
+% Michael Winkler
+% CSC335, 4/8/16
+
+series(1,3).
+series(N,Ans):- PrevN is N-1, series(PrevN, PrevAns), Ans is 2*PrevAns+1.
+
+scalarMult([],Factor,[]).
+scalarMult([H1|T1], Factor, [H2|T2]):- H2 is H1*Factor, scalarMult(T1, Factor, T2).
+
+dot([],[],0).
+dot([H1|T1],[H2|T2],Result):- dot(T1,T2,PrevResult), Result is H1*H2 + PrevResult.
+
+remove_one(Element, [H|T], T):- H = Element.
+remove_one(Element, [H|T], [H|NewTail]):- remove_one(Element, T, NewTail).
+
+set_equals(X,X).
+set_equals([H1|T1],[H2|T2]):- H1=H2, set_equals(T1,T2).
+set_equals([H1|T1],[H2|T2]):- remove_one(H1,[H2|T2],T2Smaller), set_equals(T1,T2Smaller).
+
+edge(a,b,[a,b]).
+edge(a,d,[a,d]).
+edge(b,c,[b,c]).
+edge(b,e,[b,e]).
+edge(c,e,[c,e]).
+edge(d,e,[d,e]).
+edge(d,f,[d,f]).
+edge(d,g,[d,g]).
+edge(e,h,[e,h]).
+edge(f,g,[f,g]).
+edge(g,h,[g,h]).
+
+path(X,X,[X]).
+path(Node1, Node2, Path):- edge(NodeBeforeNode2, Node2, [_|LastStep]),
+	path(Node1, NodeBeforeNode2, EarlySteps),
+	append(EarlySteps, LastStep, Path).
+
+
+
