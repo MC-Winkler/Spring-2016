@@ -1,3 +1,7 @@
+//Written by Shannon Duvall
+//Modified by Michael Winkler
+//CSC331, BSTunes, 4/13/16
+
 import java.util.Comparator;
 
 public class BST {

@@ -47,6 +47,8 @@ public class BST {
 				idNum++;
 			}
 
+			//If we didn't hit the bottom of the tree, we found a pre-existing node
+			//into which we should insert the new track
 			else {
 				currentNode.addTrack(t);
 			}
@@ -85,9 +87,13 @@ public class BST {
 	 */
 
 	public BSTNode treeSearch(BSTNode start, Track item) {
+		//If we find a matching node or reach the bottom of the tree
+		//(Reaching the bottom of the tree means there exists no matching node)
 		if (start == null || myComparator.compare(item, start.getTrack()) == 0) {
 			return start;
 		}
+		//Otherwise, determine if we should look in the right or left subtree
+		//Of the current node
 		if (myComparator.compare(item, start.getTrack()) > 0) {
 			return treeSearch(start.rightChild, item);
 		} else
@@ -143,6 +149,7 @@ public class BST {
 
 	/*
 	 * Delete a node from the tree.
+	 * Implementation is identical to the one given on the BSTs powerpoint
 	 */
 	public void deleteNode(BSTNode z) {
 		BSTNode x;
