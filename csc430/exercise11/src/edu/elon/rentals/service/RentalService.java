@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.elon.rental.business.RentalLocation;
+import edu.elon.rentals.DAO.RentalLocationDAO;
 import edu.elon.rentals.DAO.RentalLocationDAOImpl;
 
 @Service
 public class RentalService {
 
-	private RentalLocationDAOImpl rentalLocationDao;
+	private RentalLocationDAO rentalLocationDao;
 
 	@Autowired
-	public void setRentalDao(RentalLocationDAOImpl rentalDao) {
+	public void setRentalDao(RentalLocationDAO rentalDao) {
 		this.rentalLocationDao = rentalDao;
 	}
 	

@@ -15,7 +15,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Schema elonbuster
 -- -----------------------------------------------------
 
-USE `springtutorial` ;
+USE `mvc` ;
 
 -- -----------------------------------------------------
 -- Table `elonbuster`.`RentalLocation`

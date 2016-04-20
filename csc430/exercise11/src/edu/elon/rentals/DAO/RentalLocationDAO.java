@@ -9,4 +9,6 @@ import java.util.List;
 @Component
 public interface RentalLocationDAO{
 	public List<RentalLocation> getRentalLocations();
+	public boolean create(RentalLocation rentalLocation);
 }
+

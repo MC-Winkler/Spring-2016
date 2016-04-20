@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>Rental Location Listing</h1>
   <table>
     <tr>
       <td>ID</td>
@@ -36,12 +37,12 @@
     </c:forEach>
   </table>
 
-  <a href="${pageContext.request.contextPath}/createrental">Add
+  <a class="centered" href="${pageContext.request.contextPath}/createrental">Add
     Rental Location</a>
 <sec:authorize access="isAuthenticated()">
 
   <c:url var="logoutUrl" value="/logout" />
-  <form action="${logoutUrl}" method="post">
+  <form class="centered" action="${logoutUrl}" method="post">
     <input type="submit" value="Log out" /> <input type="hidden"
       name="${_csrf.parameterName}" value="${_csrf.token}" />
   </form>
