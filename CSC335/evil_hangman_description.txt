@@ -1,0 +1,1 @@
+Our evil hangman game implements all the basic functionality described in the evil h

@@ -12,9 +12,17 @@ takeout(_, [], [], 0).
 takeout(X, [X|T], PrevTail, Total):- takeout(X, T, PrevTail, PrevTotal), Total is PrevTotal + 1.
 takeout(X, [H|T], [H|PrevTail], PrevTotal):- takeout(X,T, PrevTail, PrevTotal).
 
+% alternate implementation of putIn - causes out of stack error and
+% makes go fish crash
+% putIn(L1, _, 0, L1).
+% putIn(L1, Element, NumOccur,[Element|PrevList]):- PrevNumOccur is
+% NumOccur -1, putIn(L1, Element, PrevNumOccur, PrevList).
 
+% Works, but doesn't return false after its initial answer. Causes a bug
+% in go fish when players ask for cards from each other.
 putIn(L1, _, 0, L1).
-putIn(L1, Element, NumOccur,[Element|PrevList]):- PrevNumOccur is NumOccur -1, putIn(L1, Element, PrevNumOccur, PrevList).
+putIn([], X, NumOccur, [X|PrevList]):- PrevNumOccur is NumOccur -1, putIn([],X, PrevNumOccur, PrevList).
+putIn([H|T], X, NumOccur, [H|PrevList]):- putIn(T,X,NumOccur,PrevList).
 
 % - X is the element to be counted.
 % - H is the head of the input list if X is not the head of that list.

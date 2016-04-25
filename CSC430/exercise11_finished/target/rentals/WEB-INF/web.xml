@@ -37,7 +37,7 @@
   	classpath:edu/elon/rentals/config/security-context.xml
   	</param-value>
   </context-param>
-   <filter>
+  <filter>
     <display-name>springSecurityFilterChain</display-name>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

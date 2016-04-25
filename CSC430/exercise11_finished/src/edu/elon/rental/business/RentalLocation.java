@@ -1,6 +1,7 @@
 package edu.elon.rental.business;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -24,6 +25,7 @@ public class RentalLocation {
 	private String postalCode;
 	
 	@Id
+	@GeneratedValue
 	private Integer rentalLocationId;
 	
 	@Size(min=1, message="This input field cannot be left blank")
