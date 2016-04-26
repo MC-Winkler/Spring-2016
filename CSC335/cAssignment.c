@@ -54,6 +54,7 @@ char* concat(char* first, char* second){
         newString++;
         second++;
     }
+    *newString = '\0';
     newString -= (newSize-1);
     return newString;
 }
@@ -71,6 +72,7 @@ char* substring(char* original, int start, int end){
         original++;
         newString++;
     }
+    *newString = '\0';
     newString -= diff;
     return newString;
 }
@@ -84,13 +86,15 @@ char* pigLatin(char* original){
 
     }
 
-    char* newWord = malloc(wordSize+2);
+    char* newWord = malloc(wordSize+3);
     char* tempWord = malloc(wordSize);
-    char* ay = malloc(2);
+    char* ay = malloc(3);
     *ay = 'a';
     ay++;
     *ay = 'y';
-    ay--;
+    ay++;
+    *ay = '\0';
+    ay -= 2;
     
     
     int vowelIndex = firstVowel(original);
@@ -102,10 +106,37 @@ char* pigLatin(char* original){
     return newWord;
 }
 
+int most(char* string){
+    int* array =(int*) malloc(sizeof(int)*10);
+    int i = 0;
+    int biggest = 0;
+    int leader = 0;
+    
+    while(*string != '\0'){
+        int currentNum = *string - '0';
+        array += currentNum;
+        *array += 1;
+        //printf("value of array = %d\n", *array);
+        array -= currentNum;
+        string++;
+    }
+    
+        printf("value of array = %d\n", *array);
+    for (i =0; i <10; i++){
+        if (*array > biggest){
+            biggest = *array;
+            leader = i;
+        }
+        array++;
+    }
+    return leader;
+
+}
+
+
 int main()
 {
-    printf(pigLatin("apple")); // "appleay"
-    printf("\n");
-    printf(pigLatin("dapple")); // "appleday" 
+char nums[] = "132433423";
+printf("%d \n",most(nums)); // 3
 }
 
