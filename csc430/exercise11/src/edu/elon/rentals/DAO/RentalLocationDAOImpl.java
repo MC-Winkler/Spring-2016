@@ -58,10 +58,8 @@ public class RentalLocationDAOImpl implements RentalLocationDAO {
 	}
 	
 	@Transactional
-	public boolean create(RentalLocation rentalLocation) {
-		System.out.println("calling create method");
-			BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(rentalLocation);
-			return jdbc.update("insert into rentallocations (name, address1, address2, city, state, postalcode) values (:name, :address1, :address2, :city, :state, :postalCode)", params) == 1;
+	public void create(RentalLocation rentalLocation) {
+		session().save(rentalLocation);
 			
 			
 	}
