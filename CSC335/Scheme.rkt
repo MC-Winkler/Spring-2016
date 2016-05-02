@@ -1,0 +1,39 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname Scheme) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f ())))
+#lang racket
+; sum the elements in a list
+
+(define (sumUp lst)
+  (if (null? lst)
+      0
+      (+(sumUp (cdr lst)) (car lst))))
+
+; doubleUp returns a list where all the elements
+; in the original list have an extra occurrence,
+; e.g. (1 2 3) -> (1 1 2 2 3 3)
+(define (doubleUp lst)
+  (if (null? lst)
+      null
+      (append (list (car lst) (car lst)) (doubleUp (cdr lst)))))
+
+; another version of doubleUp
+(define (doubleUp2 lst)
+  (if (null? lst)
+      null
+      (let* ((head (car lst)) (tail (cdr lst)) (doubleTail (doubleUp2 tail)))
+        (append (list head head) doubleTail))))
+
+;zipUp 
+(define (zipUp lst1 lst2)
+  (if (null? lst1)
+      null
+      (append (list (car lst1) (car lst2)) (zipUp (cdr lst1) (cdr lst2)))))
+
+(define (printList lst)
+  (if (null? lst)
+      (newline)
+      (begin
+        (display (car lst))
+        (display ",")
+        (printList (cdr lst)))))
