@@ -1,3 +1,6 @@
+//Michael Winkler
+//CSC335
+
 #include <stdio.h>
 #include <stdlib.h>
 
